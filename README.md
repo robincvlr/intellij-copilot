@@ -16,9 +16,7 @@ This innovative AI-based plugin is set to supercharge your development process.
 6. **Auto-Comments:** Keep your code clear! DevPilot can automatically add comments to your code, ensuring it's easy to understand and maintain.
 
 ## Prerequisites
-
-1. You will need an OpenAI API key / Codellama API endpoint before you use this plugin.
-2. For use of Codellama, see [deploy Codellama into you local environment](https://github.com/openpilot-hub/codellama-deploy).
+For use of vLLM, see [deploy Codellama into you local environment](https://github.com/openpilot-hub/codellama-deploy).
 
 ## Installation
 
@@ -81,10 +79,6 @@ DevPilot provides developers with rich capabilities to help them eliminate the t
 The plugin supports chat, the conversation page can be opened through the right-click menu or the entry on the right sidebar.
 
 ![menu chat](doc/images/screenshot/en/menu_chat.png)
-
-You can write questions in the dialogue box, send them by pressing enter or the send button, and OpenAI will provide answers and display them on the current page.
-
-![welcome](doc/images/screenshot/en/welcome.png)
 
 ### Generate test cases
 
@@ -158,8 +152,6 @@ With Codellama integration, users can expect:
 Looking ahead, we plan to extend our capabilities further by supporting Model as a Service (MaaS). MaaS provides the ability for users to utilize AI models in a service-based manner, without the need for local deployment or maintenance. This feature will enable seamless access to the latest AI models without bearing the computational costs or complexities of managing these models locally.
 
 By integrating MaaS into DevPilot, we aim to:
-
-- Access the latest OpenAI models without the hassle of setting up a OpenAI API key.
 - Provide a plug-and-play solution for accessing state-of-the-art AI models
 - Allow developers to leverage the latest AI advancements without the need for local resources.
 - Offer a scalable solution that can grow with your project's needs.
