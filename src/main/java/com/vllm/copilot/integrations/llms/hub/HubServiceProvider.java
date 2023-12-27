@@ -38,9 +38,14 @@ public final class HubServiceProvider implements LlmProvider {
     @Override
     public String chatCompletion(DevPilotChatCompletionRequest chatCompletionRequest) {
         var host = CodeLlamaSettingsState.getInstance().getModelHost();
+        var model = CodeLlamaSettingsState.getInstance().getModel();
 
         if (StringUtils.isEmpty(host)) {
             return "Chat completion failed: host is empty";
+        }
+
+        if (StringUtils.isEmpty(model)) {
+            return "Chat completion failed: model is empty";
         }
 
         okhttp3.Response response;

@@ -13,9 +13,7 @@ import org.jetbrains.annotations.Nullable;
 public class CodeLlamaSettingsState implements PersistentStateComponent<CodeLlamaSettingsState> {
     private String modelHost;
 
-    private String temperature;
-
-    private String maxTokens;
+    private String model;
 
     public static CodeLlamaSettingsState getInstance() {
         return ApplicationManager.getApplication().getService(CodeLlamaSettingsState.class);
@@ -24,10 +22,6 @@ public class CodeLlamaSettingsState implements PersistentStateComponent<CodeLlam
     public String getModelHost() {
         return modelHost;
     }
-
-    public String getTemperature() { return temperature; }
-
-    public String getMaxTokens() { return maxTokens; }
 
     public void setModelHost(String modelHost) {
         this.modelHost = modelHost;
@@ -43,12 +37,12 @@ public class CodeLlamaSettingsState implements PersistentStateComponent<CodeLlam
         XmlSerializerUtil.copyBean(state, this);
     }
 
-    public void setTemperature(String temperature) {
-        this.temperature = temperature;
+    public String getModel() {
+        return model;
     }
 
-    public void setMaxTokens(String maxTokens) {
-        this.maxTokens = maxTokens;
+    public void setModel(String model) {
+        this.model = model;
     }
 
 }

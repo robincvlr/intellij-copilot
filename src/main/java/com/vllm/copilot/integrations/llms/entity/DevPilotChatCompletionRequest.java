@@ -5,11 +5,7 @@ import java.util.List;
 
 public class DevPilotChatCompletionRequest {
 
-    String model;
-
-    Integer temperature;
-
-    Integer maxTokens;
+    String model = "openchat";
 
     List<DevPilotMessage> messages = new ArrayList<>();
 
@@ -38,22 +34,5 @@ public class DevPilotChatCompletionRequest {
     public void setStream(boolean stream) {
         this.stream = stream;
     }
-
-    public Integer getTemperature() {
-        return temperature;
-    }
-
-    public void setTemperature(Integer temperature) {
-        this.temperature = temperature;
-    }
-
-    public Integer getMaxTokens() {
-        return maxTokens;
-    }
-
-    public void setMaxTokens(Integer maxTokens) {
-        this.maxTokens = maxTokens;
-    }
-
 
 }

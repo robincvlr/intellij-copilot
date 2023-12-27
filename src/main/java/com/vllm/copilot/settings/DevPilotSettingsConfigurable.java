@@ -43,6 +43,7 @@ public class DevPilotSettingsConfigurable implements Configurable, Disposable {
         return !settingsComponent.getFullName().equals(settings.getFullName())
                 || !selectedModel.getName().equals(settings.getSelectedModel())
                 || !serviceForm.getCodeLlamaBaseHost().equals(codeLlamaSettings.getModelHost())
+                || !serviceForm.getCodeLlamaBaseModel().equals(codeLlamaSettings.getModel())
                 || !serviceForm.getLanguageIndex().equals(languageSettings.getLanguageIndex());
     }
 
@@ -63,8 +64,7 @@ public class DevPilotSettingsConfigurable implements Configurable, Disposable {
 
         settings.setSelectedModel(selectedModel.getName());
         codeLlamaSettings.setModelHost(serviceForm.getCodeLlamaBaseHost());
-        // codeLlamaSettings.setTemperature(serviceForm.getCodeLlamaBaseTemperature());
-        // codeLlamaSettings.setMaxTokens(serviceForm.getCodeLlamaBaseMaxTokens());
+        codeLlamaSettings.setModel(serviceForm.getCodeLlamaBaseModel());
     }
 
     @Override

@@ -6,7 +6,6 @@ import com.intellij.util.ui.FormBuilder;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UI;
 import com.vllm.copilot.enums.ModelServiceEnum;
-import com.vllm.copilot.enums.ModelTypeEnum;
 import com.vllm.copilot.util.DevPilotMessageBundle;
 import com.vllm.copilot.settings.state.CodeLlamaSettingsState;
 import com.vllm.copilot.settings.state.DevPilotLlmSettingsState;
@@ -25,9 +24,7 @@ public class DevPilotConfigForm {
 
     private final JBTextField codeLlamaBaseHostField;
 
-    private final JBTextField codeLlamaBaseTemperatureField;
-
-    private final JBTextField codeLlamaBaseMaxTokensField;
+    private final JBTextField codeLlamaBaseModelField;
 
     private Integer index;
 
@@ -39,8 +36,7 @@ public class DevPilotConfigForm {
 
         var codeLlamaSettings = CodeLlamaSettingsState.getInstance();
         codeLlamaBaseHostField = new JBTextField(codeLlamaSettings.getModelHost(), 30);
-        codeLlamaBaseTemperatureField = new JBTextField(codeLlamaSettings.getTemperature(), 30);
-        codeLlamaBaseMaxTokensField = new JBTextField(codeLlamaSettings.getMaxTokens(), 30);
+        codeLlamaBaseModelField = new JBTextField(codeLlamaSettings.getModel(), 30);
         codeLlamaServicePanel = createCodeLlamaServicePanel();
 
         panelShow(selectedEnum);
@@ -73,13 +69,10 @@ public class DevPilotConfigForm {
                 .add(UI.PanelFactory.panel(codeLlamaBaseHostField)
                         .withLabel(DevPilotMessageBundle.get("devpilot.settings.service.modelHostLabel"))
                         .resizeX(false))
-                .add(UI.PanelFactory.panel(codeLlamaBaseTemperatureField)
-                        .withLabel(DevPilotMessageBundle.get("devpilot.settings.service.temperature"))
+                .add(UI.PanelFactory.panel(codeLlamaBaseModelField)
+                        .withLabel(DevPilotMessageBundle.get("devpilot.settings.service.modelLabel"))
                         .resizeX(false))
-                .add(UI.PanelFactory.panel(codeLlamaBaseMaxTokensField)
-                        .withLabel(DevPilotMessageBundle.get("devpilot.settings.service.maxTokens"))
-                        .resizeX(false))
-                        .createPanel();
+                .createPanel();
         panel.setBorder(JBUI.Borders.emptyLeft(16));
         return panel;
     }
@@ -96,12 +89,8 @@ public class DevPilotConfigForm {
         return codeLlamaBaseHostField.getText();
     }
 
-    public String getCodeLlamaBaseTemperature() {
-        return codeLlamaBaseTemperatureField.getText();
-    }
-
-    public String getCodeLlamaBaseMaxTokens() {
-        return codeLlamaBaseMaxTokensField.getText();
+    public String getCodeLlamaBaseModel() {
+        return codeLlamaBaseModelField.getText();
     }
 
     public ModelServiceEnum getSelectedModel() {
